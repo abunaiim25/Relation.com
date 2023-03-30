@@ -1,0 +1,247 @@
+:root {
+    /*for JS page*/
+    --primary-color-hue: 252;/*theme color*/
+    --dark-color-lightness: 17%; /*background color*/
+    --light-color-lightness: 95%;
+    --white-color-lightness: 100%;
+    /*color*/
+    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+    --color-light: hsl(252, 30%, var(--light-color-lightness));
+    --color-dark: hsl(252, 30%, var(--dark-color-lightness));
+    --color-white: hsl(252, 30%, var(--white-color-lightness));
+    
+    --color-gray: hsl(252, 15%, 65%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-black: hsl(252, 30%, 10%);
+    --color-danger: hsl(0, 95%, 65%);
+    --color-brown:hsl(0, 59%, 41%);
+    /*size*/
+    --border-radious: 2rem;
+    --card-border-radious: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card--padding: 1rem;
+    /*size*/
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: -18rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+.icon-relation{
+    color: var(--color-brown);
+    font-weight: bold;
+}
+
+
+/*=====button=====*/
+button{
+    font-size: 0.8rem;
+    font-weight: 700px;
+    outline: none;
+    border: none;
+    background-color: #1d1d1d;
+    color: aliceblue;
+    padding: 13px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3 ease;
+}
+button:hover{
+    background-color: var(--color-brown);
+}
+
+hr{
+    width: 40px!important;
+    height: 2px!important;
+    background-color: var(--color-brown) !important;
+}
+
+
+
+/*=====navbar=====*/
+.navbar{
+    font-size: 16px;
+    top: 0;
+    left: 0;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px !important;
+    color: black;
+    transition: 0.3s ease!important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar i.active{
+ color: var(--color-brown)!important;
+}
+
+.navbar i{
+    font-size: 1.2rem;
+    padding: 0 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+.collapse{
+    position: relative;
+}
+.start_right{
+    position: absolute;
+    right: 0;
+}
+
+/*------------------------Index-----------------------------*/
+/*=============== CREATE POST ===============*/
+.middle .create-post {
+    border: 1px solid hsl(257, 14%, 90%);
+    width: 100%;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    align-items: center;
+    margin-top: 1rem;
+    background: var(--color-white);
+    padding: 0.4rem var(--card--padding);
+    border-radius: var(--border-radious);
+}
+/*SEARCH*/
+.middle .create-post input[type="text"] {
+    justify-self: start;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 1rem;
+    margin-right: .5rem;
+    background: transparent;
+    color: var(--color-dark);
+}
+
+ .btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radious);
+    background: var(--color-brown)!important;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+/*=============== FEEDS ===============*/
+
+.middle .profile-photo {
+    width: 2.7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow-y: hidden;
+    
+}
+.middle .photo{
+display: flex;
+justify-content: center;
+align-items: center;
+background: whitesmoke;
+}
+.middle img {
+    display: block;
+    max-height: 400px;
+    max-width: 100%;
+}
+.middle .text-bold {
+    font-weight: 500;
+}
+.middle .text-muted {
+    color: var(--color-gray);
+}
+
+/*START HEAD*/
+.middle .feeds .feed {
+    border: 1px solid hsl(257, 14%, 90%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background: var(--color-white);
+    border-radius: var(--card-border-radious);
+    padding: var(--card--padding);
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1rem;
+}
+.middle .feeds .feed .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*vartical center*/
+}
+.middle .feeds .feed .user {
+    display: flex;
+    align-items: center;
+    /*vartical center*/
+    gap: 1rem;
+}
+/*END HEAD*/
+
+/*START PHOTO*/
+.middle .feeds .feed .photo {
+    border-radius: var(--card-border-radious);
+    margin: 0.7rem 0;
+    overflow: hidden;
+}
+/*END PHOTO*/
+
+/*START LIKE COMMENT*/
+.middle .feeds .feed .action-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 0.6rem;
+}
+.middle .feeds .feed .liked-by {
+    display: flex;
+}
+.middle .feeds .feed .liked-by span {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-white);
+    margin-left: -0.6rem;
+}
+.middle .feeds .feed .liked-by span:first-child {
+    margin: 0;
+}
+.middle .feeds .feed .liked-by p {
+    margin-left: 0.5rem;
+}
+/*END LIKE COMMENT*/
+
+/*--------------------Profile---------------------*/
+.circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 128px;
+    height: 128px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.circle img {
+    max-width: 100%;
+    height: auto;
+}
+
+.end{
+    right: 0;
+}
