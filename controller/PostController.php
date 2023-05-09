@@ -4,7 +4,7 @@ include('../config/dbcon.php');
 include('Function.php');
 
 
-/*---------------------------------Update Profile-------------------------------- */
+/*---------------------------------Insert Post-------------------------------- */
 if (isset($_POST['post_btn'])) {
     //take data by form
     $text_des = mysqli_real_escape_string($conn, $_POST['text_des']);

@@ -201,12 +201,25 @@ background: whitesmoke;
 /*END PHOTO*/
 
 /*START LIKE COMMENT*/
+
 .middle .feeds .feed .action-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.4rem;
     margin: 0.6rem;
+    font-size: 1.2rem;
+}
+.middle .feeds .feed .action-button button{
+    font-size: 1.2rem;
+}
+.middle .feeds .feed .action-button .like,.unlike{
+    border: 0;
+    background: none!important;
+    letter-spacing: 1px;
+    color: var(--color-gray);
+}
+.middle .feeds .feed .action-button .like,.unlike:hover{
+    cursor: pointer;
 }
 .middle .feeds .feed .liked-by {
     display: flex;

@@ -86,109 +86,69 @@ include('auth/authenticate.php'); //if not login, user can not go this section
 
 
 
-                  <!--START FEEDS-->
-                  <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-photo">
-                                    <img height="100%" width="100%" src="assets/images/rose.jpg" alt="" />
+                   <!--START FEEDS-->
+                <?php
+                $post_items = getPostMyAll();
+                if (mysqli_num_rows($post_items) > 0) {
+                ?>
+                    <div class="feeds">
+                        <?php
+                        foreach ($post_items as $item) {
+                        ?>
+                            <div class="feed">
+
+                                <div class="head">
+                                    <div class="user">
+                                        <div class="profile-photo">
+                                            <img height="100%" width="100%" src="uploads/profile/<?= $item['profile_image']; ?>" alt="" />
+                                        </div>
+                                        <div class="info">
+                                            <h5><?= $item['name'] ?></h5>
+                                            <small>Dubai, 15 MINUTES AGO</small>
+                                        </div>
+                                    </div>
+                                    <span class="edit">
+                                        <i class="uil uil-ellipsis-h"></i>
+                                    </span>
                                 </div>
 
-                                <div class="info">
-                                    <h5>Lana Rose</h5>
-                                    <small>Dubai, 15 MINUTES AGO</small>
+
+                                <div>
+                                    <div class="caption mt-3">
+                                        
+                                        <p><?= $item['text_des'] ?></p>
+                                    </div>
+                                    <div class="photo  ">
+                                        <img src="uploads/post/<?= $item['image'] ?>" alt="" />
+                                    </div>
                                 </div>
+
+
+                                <div class="action-button">
+                                    <div class="interaction-buttons">
+                                        <span><i class="uil uil-heart"></i></span>
+                                        <span><i class="uil uil-comment-dots"></i></span>
+                                        <span><i class="uil uil-share-alt"></i></span>
+                                    </div>
+
+                                    <div class="bookmark">
+                                        <span><i class="uil uil-bookmark-full"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="liked-by">
+                                    <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
+                                    <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
+                                    <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
+                                    <p>Linked by <b>Ernest Achiever</b> and 2,323 others</p>
+                                </div>
+
+
+                                <div class="text-muted comments">View all 299 comments</div>
                             </div>
-
-                            <span class="edit">
-                                <i class="uil uil-ellipsis-h"></i>
-                            </span>
-                        </div>
-
-                        <div class="photo blur ">
-                            <img src="assets/images/rose.jpg" alt="" />
-                        </div>
-
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="uil uil-heart"></i></span>
-                                <span><i class="uil uil-comment-dots"></i></span>
-                                <span><i class="uil uil-share-alt"></i></span>
-                            </div>
-
-                            <div class="bookmark">
-                                <span><i class="uil uil-bookmark-full"></i></span>
-                            </div>
-                        </div>
-
-                        <div class="liked-by">
-                            <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
-                            <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
-                            <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
-                            <p>Linked by <b>Ernest Achiever</b> and 2,323 others</p>
-                        </div>
-
-                        <div class="caption">
-                            <p>
-                                <b>Lana Rose </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam id qui.
-                                <span class="harsh-tag">#lifesycle</span>
-                            </p>
-                        </div>
-                        <div class="text-muted comments">View all 299 comments</div>
+                        <?php  } ?>
                     </div>
-
-                    <!--FEED1-->
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-photo">
-                                    <img height="100%" width="100%" src="assets/images/AN6.jpg" alt="" />
-                                </div>
-
-                                <div class="info">
-                                    <h5>Lana Rose</h5>
-                                    <small>Dubai, 15 MINUTES AGO</small>
-                                </div>
-                            </div>
-
-                            <span class="edit">
-                                <i class="uil uil-ellipsis-h"></i>
-                            </span>
-                        </div>
-
-                        <div class="photo blur ">
-                            <img src="assets/images/AN6.jpg" alt="" />
-                        </div>
-
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="uil uil-heart"></i></span>
-                                <span><i class="uil uil-comment-dots"></i></span>
-                                <span><i class="uil uil-share-alt"></i></span>
-                            </div>
-
-                            <div class="bookmark">
-                                <span><i class="uil uil-bookmark-full"></i></span>
-                            </div>
-                        </div>
-
-                        <div class="liked-by">
-                            <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
-                            <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
-                            <span> <img height="100%" width="100%" src="assets/images/AN3.jpeg" alt="" /></span>
-                            <p>Linked by <b>Ernest Achiever</b> and 2,323 others</p>
-                        </div>
-
-                        <div class="caption">
-                            <p>
-                                <b>Lana Rose </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam id qui.
-                                <span class="harsh-tag">#lifesycle</span>
-                            </p>
-                        </div>
-                        <div class="text-muted comments">View all 299 comments</div>
-                    </div>
-                </div>
+                <?php  } ?>
                 <!--END FEEDS-->
             </div>
         </div>
