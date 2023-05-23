@@ -10,6 +10,14 @@ function getUserMe()
     return mysqli_query($conn, $query);
 }
 
+function getUsersAll()
+{
+    global $conn;
+
+    $query = "SELECT * FROM users" ;
+    return mysqli_query($conn, $query);
+}
+
 function getPostAll()
 {
     global $conn;
@@ -32,5 +40,25 @@ function getPostMyAll()
     ORDER BY id DESC" ;
     return mysqli_query($conn, $query);
 }
+
+
+
+function getComment()
+{
+    global $conn;
+
+    $query = "SELECT comments.*, posts.id as postsid /*users.name, users.profile_image*/ FROM comments, posts
+    /*INNER JOIN users
+    ON comments.user_id = users.id*/
+    WHERE comments.post_id = posts.id
+    ORDER BY comments.id DESC" ;
+    return mysqli_query($conn, $query);
+}
+
+
+//AND comments.user_id='$user_id'
 ?>
+
+
+
 

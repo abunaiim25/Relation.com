@@ -212,7 +212,7 @@ background: whitesmoke;
 .middle .feeds .feed .action-button button{
     font-size: 1.2rem;
 }
-.middle .feeds .feed .action-button .like,.unlike{
+.middle .feeds .feed .action-button .like,.unlike,.comment{
     border: 0;
     background: none!important;
     letter-spacing: 1px;

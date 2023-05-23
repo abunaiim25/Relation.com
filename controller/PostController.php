@@ -28,3 +28,26 @@ if (isset($_POST['post_btn'])) {
         redirect("../profile.php", "Something Went Wrong");
     }
 }
+else if (isset($_POST['delete_post_btn'])) {
+    $post_id =  $_POST['post_id'];
+
+    //this code for image
+    $query = "SELECT * FROM posts WHERE id='$post_id' ";
+    $query_run = mysqli_query($conn, $query);
+    $data = mysqli_fetch_array($query_run);
+    $image = $data['image'];
+
+    //delete
+    $delete_query = "DELETE FROM posts WHERE posts.id='$post_id' ";
+    $delete_query_run = mysqli_query($conn, $delete_query);
+
+    if ($delete_query_run) {
+        if (file_exists("../uploads/post/" . $image)) //old image delete
+        {
+            unlink("../uploads/post/" . $image);
+        }
+        redirect("../profile.php", "Deleted Successfully");
+    } else {
+        redirect("../profile.php", "Something Went Wrong");
+    }
+}

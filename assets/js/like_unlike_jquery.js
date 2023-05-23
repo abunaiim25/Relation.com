@@ -1,6 +1,9 @@
 $(document).ready(function () {
-    $(".like, .unlike").click(function () { 
+    //$(".like, .unlike").click(function () {
+        $(document).on("click", ".like, .unlike", function () { 
         var id = this.id;  
+        //alert(id);
+        
         
         var split_id = id.split("_");
         var text = split_id[0];
@@ -13,14 +16,14 @@ $(document).ready(function () {
         }
      
         $.ajax({
-            url: 'controller/LikeunlikeController.php',
             //type: 'post',
             method: "POST",
+            url: 'controller/LikeunlikeController.php',
             data: {
                 postid:postid,
                 type:type
             },
-            dataType: 'json',
+           //dataType: 'json',
 
             success: function(data)
             {
@@ -29,18 +32,21 @@ $(document).ready(function () {
 
                 $("#likes_"+postid).text(likes);       
                 $("#unlikes_"+postid).text(unlikes);   
-                if(type == 1)
+                if(type == 1)//like
                 {
-                    $("#like_"+postid).css("color","#ffa449");
-                    $("#unlike_"+postid).css("color","lightseagreen");
+                    $("#like_"+postid).css("color","red");
+                    $("#unlike_"+postid).css("color","hsl(252, 15%, 65%)");
+                    $("#autoReload").load(location.href + " #autoReload");
                 }
-                if(type == 0)
+                if(type == 0)//unlike
                 {
                     $("#unlike_"+postid).css("color","#ffa449");
-                    $("#like_"+postid).css("color","lightseagreen");
+                    $("#like_"+postid).css("color","hsl(252, 15%, 65%)");
+                    $("#autoReload").load(location.href + " #autoReload");
                 }
             }
         });
+        
         
     });
 });
